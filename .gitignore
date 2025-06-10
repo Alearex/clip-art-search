@@ -1,0 +1,8 @@
+wikiart_subset/
+venv/
+dataset/
+.ipynb_checkpoints/
+*.ipynb
+*.jpg
+*Zone.Identifier
+wikiart_subset/
