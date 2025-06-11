@@ -40,15 +40,14 @@ if query:
         for idx in top_indices:
             score = sims[idx]
             img = Image.open(image_paths[idx])
-            st.image(similar_img, caption=f"{image_paths[sim_idx]} — Sim : {sim_to_others[sim_idx]:.3f}", use_container_width=True)
-
-
+            st.image(img, caption=f"{image_paths[idx]} — Sim : {score:.3f}", use_container_width=True)
+        
             # --- Section "Images similaires" ---
             st.markdown("**Images similaires :**")
             img_embedding = image_embeddings[idx].reshape(1, -1)
             sim_to_others = cosine_similarity(img_embedding, image_embeddings)[0]
-            similar_indices = sim_to_others.argsort()[::-1][1:4]  # Exclut elle-même (indice 0)
-    
+            similar_indices = sim_to_others.argsort()[::-1][1:4]
+        
             cols = st.columns(3)
             for col, sim_idx in zip(cols, similar_indices):
                 similar_img = Image.open(image_paths[sim_idx])
