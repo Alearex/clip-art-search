@@ -1,7 +1,7 @@
 streamlit
 torch
 open_clip_torch
-Pillow
 numpy
+Pillow
 scikit-learn
-matplotlib
+tqdm
